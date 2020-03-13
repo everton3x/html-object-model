@@ -1,2 +1,2 @@
 #!/bin/sh
-./vendor/bin/php-cs-fixer fix src
+sudo ./vendor/bin/php-cs-fixer fix src

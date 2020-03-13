@@ -20,9 +20,7 @@ jobs:
         uses: ./.github/actions/php
 
       - name: Installing Composer
-        run:  |
-              composer install --no-ansi --no-interaction --no-suggest --prefer-dist
+        run:  ./.github/scripts/run-composer.sh
 
       - name: Running PHP CS Fixer
-        run:  |
-              ./vendor/bin/php-cs-fixer fix src
+        run:  ./.github/scripts/run-composer.sh
