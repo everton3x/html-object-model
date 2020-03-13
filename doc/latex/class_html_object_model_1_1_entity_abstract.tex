@@ -1,0 +1,225 @@
+\hypertarget{class_html_object_model_1_1_entity_abstract}{}\doxysection{Entity\+Abstract Class Reference}
+\label{class_html_object_model_1_1_entity_abstract}\index{EntityAbstract@{EntityAbstract}}
+
+
+Inheritance diagram for Entity\+Abstract\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_a3928875ef0ceb18a51c1061be3eb3a00}{build}} ()
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_a868926dfcd607439506e8635b5054e98}{\+\_\+\+\_\+construct}} (string \$tag)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_ab86ba36154b20e6bbfa3ba705f12f9d6}{get\+Tag}} ()
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_ac1cfdf0389c52272bde731a33e288f44}{set\+Attribute}} (string \$name, \$value)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_a68eac2277d384c1a9ff316eb14f52daf}{get\+Attribute}} (string \$name)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_a87ba362b0d72b64e0da6f095c5c40ba5}{get\+All\+Attributes}} ()
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_a7516ca30af0db3cdbf9a7739b48ce91d}{\+\_\+\+\_\+to\+String}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_a58d8671f64b4dd538b1cf811220b692d}{build\+Attributes}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+array \mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_ac89f2733f3f084f1e693e13afbb67739}{\$attributes}} = \mbox{[}$\,$\mbox{]}
+\item 
+string \mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_a2e0407cd1f5680087e8bd0cc36d76dfa}{\$tag}} = \textquotesingle{}\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstraction for html entities.
+
+This abstract class is necessary so that there is a way for the user of the Html Object Model to be able to identify if it is an element, container or any of the two. 
+
+Definition at line 13 of file Entity\+Abstract.\+php.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_html_object_model_1_1_entity_abstract_a868926dfcd607439506e8635b5054e98}\label{class_html_object_model_1_1_entity_abstract_a868926dfcd607439506e8635b5054e98}} 
+\index{EntityAbstract@{EntityAbstract}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!EntityAbstract@{EntityAbstract}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{string}]{\$tag }\end{DoxyParamCaption})}
+
+Each html tag represents an entity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$tag} & Tag of the H\+T\+ML entity. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unexpected\+Value\+Exception} & Throws an Unexpected\+Value\+Exception exception if the \$tag value is zero lenght. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{class_html_object_model_1_1_container_a868926dfcd607439506e8635b5054e98}{Container}}, and \mbox{\hyperlink{class_html_object_model_1_1_element_a868926dfcd607439506e8635b5054e98}{Element}}.
+
+
+
+Definition at line 42 of file Entity\+Abstract.\+php.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_html_object_model_1_1_entity_abstract_a7516ca30af0db3cdbf9a7739b48ce91d}\label{class_html_object_model_1_1_entity_abstract_a7516ca30af0db3cdbf9a7739b48ce91d}} 
+\index{EntityAbstract@{EntityAbstract}!\_\_toString@{\_\_toString}}
+\index{\_\_toString@{\_\_toString}!EntityAbstract@{EntityAbstract}}
+\doxysubsubsection{\texorpdfstring{\_\_toString()}{\_\_toString()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+See the magic \+\_\+\+\_\+to\+String method in the P\+HP documentation.
+
+\mbox{\hyperlink{}{string }}
+
+Definition at line 130 of file Entity\+Abstract.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_entity_abstract_a3928875ef0ceb18a51c1061be3eb3a00}\label{class_html_object_model_1_1_entity_abstract_a3928875ef0ceb18a51c1061be3eb3a00}} 
+\index{EntityAbstract@{EntityAbstract}!build@{build}}
+\index{build@{build}!EntityAbstract@{EntityAbstract}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Builds the html code of the entity.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_html_object_model_1_1_container_a3928875ef0ceb18a51c1061be3eb3a00}{Container}}, and \mbox{\hyperlink{class_html_object_model_1_1_element_a3928875ef0ceb18a51c1061be3eb3a00}{Element}}.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_entity_abstract_a58d8671f64b4dd538b1cf811220b692d}\label{class_html_object_model_1_1_entity_abstract_a58d8671f64b4dd538b1cf811220b692d}} 
+\index{EntityAbstract@{EntityAbstract}!buildAttributes@{buildAttributes}}
+\index{buildAttributes@{buildAttributes}!EntityAbstract@{EntityAbstract}}
+\doxysubsubsection{\texorpdfstring{buildAttributes()}{buildAttributes()}}
+{\footnotesize\ttfamily build\+Attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Builds the html code of the attributes.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file Entity\+Abstract.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_entity_abstract_a87ba362b0d72b64e0da6f095c5c40ba5}\label{class_html_object_model_1_1_entity_abstract_a87ba362b0d72b64e0da6f095c5c40ba5}} 
+\index{EntityAbstract@{EntityAbstract}!getAllAttributes@{getAllAttributes}}
+\index{getAllAttributes@{getAllAttributes}!EntityAbstract@{EntityAbstract}}
+\doxysubsubsection{\texorpdfstring{getAllAttributes()}{getAllAttributes()}}
+{\footnotesize\ttfamily get\+All\+Attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of all attributes.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file Entity\+Abstract.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_entity_abstract_a68eac2277d384c1a9ff316eb14f52daf}\label{class_html_object_model_1_1_entity_abstract_a68eac2277d384c1a9ff316eb14f52daf}} 
+\index{EntityAbstract@{EntityAbstract}!getAttribute@{getAttribute}}
+\index{getAttribute@{getAttribute}!EntityAbstract@{EntityAbstract}}
+\doxysubsubsection{\texorpdfstring{getAttribute()}{getAttribute()}}
+{\footnotesize\ttfamily get\+Attribute (\begin{DoxyParamCaption}\item[{string}]{\$name }\end{DoxyParamCaption})}
+
+Returns a specific attribute represented by \$name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$number 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unexpected\+Value\+Exception} & throws an Unexpected\+Value\+Exception exception if the attribute is not defined. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 82 of file Entity\+Abstract.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_entity_abstract_ab86ba36154b20e6bbfa3ba705f12f9d6}\label{class_html_object_model_1_1_entity_abstract_ab86ba36154b20e6bbfa3ba705f12f9d6}} 
+\index{EntityAbstract@{EntityAbstract}!getTag@{getTag}}
+\index{getTag@{getTag}!EntityAbstract@{EntityAbstract}}
+\doxysubsubsection{\texorpdfstring{getTag()}{getTag()}}
+{\footnotesize\ttfamily get\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter for the entity tag.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file Entity\+Abstract.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_entity_abstract_ac1cfdf0389c52272bde731a33e288f44}\label{class_html_object_model_1_1_entity_abstract_ac1cfdf0389c52272bde731a33e288f44}} 
+\index{EntityAbstract@{EntityAbstract}!setAttribute@{setAttribute}}
+\index{setAttribute@{setAttribute}!EntityAbstract@{EntityAbstract}}
+\doxysubsubsection{\texorpdfstring{setAttribute()}{setAttribute()}}
+{\footnotesize\ttfamily set\+Attribute (\begin{DoxyParamCaption}\item[{string}]{\$name,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Sets an H\+T\+ML attribute for the entity.
+
+If the attribute is already configured, it updates the value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$name} & Attribute name. \\
+\hline
+string | number & {\em \$value} & Attribute value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_html_object_model_1_1_element}{Element}} 
+\end{DoxyReturn}
+
+
+Definition at line 69 of file Entity\+Abstract.\+php.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_html_object_model_1_1_entity_abstract_ac89f2733f3f084f1e693e13afbb67739}\label{class_html_object_model_1_1_entity_abstract_ac89f2733f3f084f1e693e13afbb67739}} 
+\index{EntityAbstract@{EntityAbstract}!\$attributes@{\$attributes}}
+\index{\$attributes@{\$attributes}!EntityAbstract@{EntityAbstract}}
+\doxysubsubsection{\texorpdfstring{\$attributes}{$attributes}}
+{\footnotesize\ttfamily array \$attributes = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 28 of file Entity\+Abstract.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_entity_abstract_a2e0407cd1f5680087e8bd0cc36d76dfa}\label{class_html_object_model_1_1_entity_abstract_a2e0407cd1f5680087e8bd0cc36d76dfa}} 
+\index{EntityAbstract@{EntityAbstract}!\$tag@{\$tag}}
+\index{\$tag@{\$tag}!EntityAbstract@{EntityAbstract}}
+\doxysubsubsection{\texorpdfstring{\$tag}{$tag}}
+{\footnotesize\ttfamily string \$tag = \textquotesingle{}\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 34 of file Entity\+Abstract.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_entity_abstract_8php}{Entity\+Abstract.\+php}}\end{DoxyCompactItemize}

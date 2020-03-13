@@ -1,0 +1,378 @@
+\hypertarget{class_html_object_model_1_1_container}{}\doxysection{Container Class Reference}
+\label{class_html_object_model_1_1_container}\index{Container@{Container}}
+
+
+Inheritance diagram for Container\+:
+% FIG 0
+
+
+Collaboration diagram for Container\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a868926dfcd607439506e8635b5054e98}{\+\_\+\+\_\+construct}} (string \$tag)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_ac8cf96ef7a19d67f78b1221226928a23}{add\+Node}} (\$node, \$id=null)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a3f6f2826ffb4f8866a28fa8795995d46}{has\+Node\+Id}} (\$id)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a34221f1ebaceb446ebb8551e1e0cdb3d}{has\+Node}} (\$node)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a79ab0fe04d3067ecda895a146666ee90}{get\+Node\+By\+Id}} (\$id)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a5deb44ee86a674569132fbe9f4b83123}{get\+All\+Nodes}} ()
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a582fc3244c66f84c69dde372ca1f4b71}{count\+Nodes}} ()
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a464da50a5c98f669acdafaa98f803f52}{get\+All\+Nodes\+Id}} ()
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a9199c019b6e7810c33f1e7f907273aca}{remove\+Node\+By\+Id}} (\$id)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a578bdbacba13f41a3bb6f084dec5957d}{remove\+Node}} (\$node)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a7064c4e952bd112ebd6f8cb4b4368ebd}{replace\+Node\+By\+Id}} (\$id, \$new\+Node)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a9d5bab7e0a4012987f5f6875074458b8}{replace\+Node}} (\$old\+Node, \$new\+Node)
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_a3928875ef0ceb18a51c1061be3eb3a00}{build}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_html_object_model_1_1_container_aef421935e0645670e604f73e50f24e6e}{build\+Nodes}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+array \mbox{\hyperlink{class_html_object_model_1_1_container_ab6522b769c096268140cd78432e66378}{\$nodes}} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 7 of file Container.\+php.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a868926dfcd607439506e8635b5054e98}\label{class_html_object_model_1_1_container_a868926dfcd607439506e8635b5054e98}} 
+\index{Container@{Container}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{string}]{\$tag }\end{DoxyParamCaption})}
+
+H\+T\+ML entity that supports children (nodes).
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$tag} & Tag of the H\+T\+ML element. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unexpected\+Value\+Exception} & Throws an Unexpected\+Value\+Exception exception if the \$tag value is zero lenght. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented from \mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_a868926dfcd607439506e8635b5054e98}{Entity\+Abstract}}.
+
+
+
+Definition at line 22 of file Container.\+php.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_html_object_model_1_1_container_ac8cf96ef7a19d67f78b1221226928a23}\label{class_html_object_model_1_1_container_ac8cf96ef7a19d67f78b1221226928a23}} 
+\index{Container@{Container}!addNode@{addNode}}
+\index{addNode@{addNode}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{addNode()}{addNode()}}
+{\footnotesize\ttfamily add\+Node (\begin{DoxyParamCaption}\item[{}]{\$node,  }\item[{}]{\$id = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Adds a new node to the container.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$node} & The new node. \\
+\hline
+number | string | null & {\em \$id} & An optional id to node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_html_object_model_1_1_container}{Container}} 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a3928875ef0ceb18a51c1061be3eb3a00}\label{class_html_object_model_1_1_container_a3928875ef0ceb18a51c1061be3eb3a00}} 
+\index{Container@{Container}!build@{build}}
+\index{build@{build}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+See \textbackslash{}\+Html\+Object\+Model\textbackslash{}\+Entity\+Abstract\+::build()
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_html_object_model_1_1_entity_abstract_a3928875ef0ceb18a51c1061be3eb3a00}{Entity\+Abstract}}.
+
+
+
+Definition at line 189 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_aef421935e0645670e604f73e50f24e6e}\label{class_html_object_model_1_1_container_aef421935e0645670e604f73e50f24e6e}} 
+\index{Container@{Container}!buildNodes@{buildNodes}}
+\index{buildNodes@{buildNodes}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{buildNodes()}{buildNodes()}}
+{\footnotesize\ttfamily build\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Builds the html code of the nodes.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a582fc3244c66f84c69dde372ca1f4b71}\label{class_html_object_model_1_1_container_a582fc3244c66f84c69dde372ca1f4b71}} 
+\index{Container@{Container}!countNodes@{countNodes}}
+\index{countNodes@{countNodes}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{countNodes()}{countNodes()}}
+{\footnotesize\ttfamily count\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reports the number of existing nodes.
+
+\begin{DoxyReturn}{Returns}
+integer 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a5deb44ee86a674569132fbe9f4b83123}\label{class_html_object_model_1_1_container_a5deb44ee86a674569132fbe9f4b83123}} 
+\index{Container@{Container}!getAllNodes@{getAllNodes}}
+\index{getAllNodes@{getAllNodes}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{getAllNodes()}{getAllNodes()}}
+{\footnotesize\ttfamily get\+All\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get all the nodes.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a464da50a5c98f669acdafaa98f803f52}\label{class_html_object_model_1_1_container_a464da50a5c98f669acdafaa98f803f52}} 
+\index{Container@{Container}!getAllNodesId@{getAllNodesId}}
+\index{getAllNodesId@{getAllNodesId}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{getAllNodesId()}{getAllNodesId()}}
+{\footnotesize\ttfamily get\+All\+Nodes\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get all nodes id.
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a79ab0fe04d3067ecda895a146666ee90}\label{class_html_object_model_1_1_container_a79ab0fe04d3067ecda895a146666ee90}} 
+\index{Container@{Container}!getNodeById@{getNodeById}}
+\index{getNodeById@{getNodeById}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{getNodeById()}{getNodeById()}}
+{\footnotesize\ttfamily get\+Node\+By\+Id (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+Get the node using your id.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | number & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unexpected\+Value\+Exception} & Throws an exception of type Unexpected\+Value\+Exception if the id is not found. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 74 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a34221f1ebaceb446ebb8551e1e0cdb3d}\label{class_html_object_model_1_1_container_a34221f1ebaceb446ebb8551e1e0cdb3d}} 
+\index{Container@{Container}!hasNode@{hasNode}}
+\index{hasNode@{hasNode}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{hasNode()}{hasNode()}}
+{\footnotesize\ttfamily has\+Node (\begin{DoxyParamCaption}\item[{}]{\$node }\end{DoxyParamCaption})}
+
+Checks whether a given node exists in the list of nodes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$number$\vert$boolean Returns the node id if it exists, if not, returns false. This method can return false \char`\"{}false\char`\"{}, if the returned id is zero, so always use === when checking. 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a3f6f2826ffb4f8866a28fa8795995d46}\label{class_html_object_model_1_1_container_a3f6f2826ffb4f8866a28fa8795995d46}} 
+\index{Container@{Container}!hasNodeId@{hasNodeId}}
+\index{hasNodeId@{hasNodeId}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{hasNodeId()}{hasNodeId()}}
+{\footnotesize\ttfamily has\+Node\+Id (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+Checks whether a given node id exists in the list of nodes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | number & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a578bdbacba13f41a3bb6f084dec5957d}\label{class_html_object_model_1_1_container_a578bdbacba13f41a3bb6f084dec5957d}} 
+\index{Container@{Container}!removeNode@{removeNode}}
+\index{removeNode@{removeNode}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{removeNode()}{removeNode()}}
+{\footnotesize\ttfamily remove\+Node (\begin{DoxyParamCaption}\item[{}]{\$node }\end{DoxyParamCaption})}
+
+Removes a node.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_html_object_model_1_1_container}{Container}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unexpected\+Value\+Exception} & Throws an exception of type Unexpected\+Value\+Exception if the node is not found. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 136 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a9199c019b6e7810c33f1e7f907273aca}\label{class_html_object_model_1_1_container_a9199c019b6e7810c33f1e7f907273aca}} 
+\index{Container@{Container}!removeNodeById@{removeNodeById}}
+\index{removeNodeById@{removeNodeById}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{removeNodeById()}{removeNodeById()}}
+{\footnotesize\ttfamily remove\+Node\+By\+Id (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+Removes a node using its id.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | number & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_html_object_model_1_1_container}{Container}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unexpected\+Value\+Exception} & Throws an exception of type Unexpected\+Value\+Exception if the id is not found. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 119 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a9d5bab7e0a4012987f5f6875074458b8}\label{class_html_object_model_1_1_container_a9d5bab7e0a4012987f5f6875074458b8}} 
+\index{Container@{Container}!replaceNode@{replaceNode}}
+\index{replaceNode@{replaceNode}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{replaceNode()}{replaceNode()}}
+{\footnotesize\ttfamily replace\+Node (\begin{DoxyParamCaption}\item[{}]{\$old\+Node,  }\item[{}]{\$new\+Node }\end{DoxyParamCaption})}
+
+Replaces one node with another.
+
+
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$old\+Node} & The old node. \\
+\hline
+mixed & {\em \$new\+Node} & the new node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_html_object_model_1_1_container}{Container}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unexpected\+Value\+Exception} & Throws an exception of type Unexpected\+Value\+Exception if the node is not found. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 174 of file Container.\+php.
+
+\mbox{\Hypertarget{class_html_object_model_1_1_container_a7064c4e952bd112ebd6f8cb4b4368ebd}\label{class_html_object_model_1_1_container_a7064c4e952bd112ebd6f8cb4b4368ebd}} 
+\index{Container@{Container}!replaceNodeById@{replaceNodeById}}
+\index{replaceNodeById@{replaceNodeById}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{replaceNodeById()}{replaceNodeById()}}
+{\footnotesize\ttfamily replace\+Node\+By\+Id (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$new\+Node }\end{DoxyParamCaption})}
+
+Replaces one node with another using the id.
+
+The new node will keep the same id as the old node.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string | number & {\em \$id} & the replaced node id. \\
+\hline
+mixed & {\em \$new\+Node} & The new node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_html_object_model_1_1_container}{Container}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unexpected\+Value\+Exception} & Throws an exception of type Unexpected\+Value\+Exception if the id is not found. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line 156 of file Container.\+php.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{class_html_object_model_1_1_container_ab6522b769c096268140cd78432e66378}\label{class_html_object_model_1_1_container_ab6522b769c096268140cd78432e66378}} 
+\index{Container@{Container}!\$nodes@{\$nodes}}
+\index{\$nodes@{\$nodes}!Container@{Container}}
+\doxysubsubsection{\texorpdfstring{\$nodes}{$nodes}}
+{\footnotesize\ttfamily array \$nodes = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 15 of file Container.\+php.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_container_8php}{Container.\+php}}\end{DoxyCompactItemize}
