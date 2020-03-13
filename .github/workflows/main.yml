@@ -1,4 +1,4 @@
-name: Master Actions
+name: Main workflow
 
 on:
   push:

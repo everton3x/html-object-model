@@ -1,7 +1,7 @@
 # Html Object Model
 **It provides web developers with an abstraction for html entities similar to the Document Object Model.**
 
-![](https://github.com/actions/html-object-model/workflows/Master%20Actions/badge.svg)
+![](https://github.com/everton3x/html-object-model/.github/workflows/main.yml/badge.svg)
 
 Anyone who uses [PHP](https://php.net) for web development is used to using object orientation daily. However, when the developer goes on to create the user interface, he invariably has to leave object orientation to write markup code. Even if the web developer uses some template tools, like [Twig](https://twig.symfony.com/), even so, he needs to have a lot of work with *HTML* making the models, besides needing to use a whole library of templates, usually bigger and with more features than necessary.
 
