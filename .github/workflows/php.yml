@@ -20,5 +20,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
+    - name: Corrects permission denied error for scripts
+      run: chmod +x ./vendor/bin/php-cs-fixer
+
     - name: Run PHP CS Fixer
       run: composer run-script php-cs-fixer
