@@ -1,0 +1,16 @@
+{
+    "name": "everton3x/html-object-model",
+    "description": "Library for creating object-oriented HTML entities, in the Document Object Model style.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Everton da Rosa",
+            "email": "everton3x@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16"
+    }
+}
