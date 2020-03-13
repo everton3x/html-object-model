@@ -25,4 +25,4 @@ jobs:
 
       - name: Running PHP CS Fixer
         run:  |
-              sudo php-cs-fixer fix src
+              sudo vendor/bin/php-cs-fixer fix src
