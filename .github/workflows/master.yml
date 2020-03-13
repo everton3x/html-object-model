@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Master Actions
 
 on:
   push:
