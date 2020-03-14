@@ -33,3 +33,6 @@ jobs:
 
     - name: Run PHP Mess Detector
       run: ./vendor/bin/phpmd src/ text cleancode,codesize,controversial,design,naming,unusedcode
+
+    - name: Run PHP Copy/Paswte Detector
+      run: ./vendor/bin/phpcpd --fuzzy src/
