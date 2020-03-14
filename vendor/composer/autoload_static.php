@@ -30,7 +30,9 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
             'Symfony\\Component\\Finder\\' => 25,
             'Symfony\\Component\\Filesystem\\' => 29,
             'Symfony\\Component\\EventDispatcher\\' => 34,
+            'Symfony\\Component\\DependencyInjection\\' => 38,
             'Symfony\\Component\\Console\\' => 26,
+            'Symfony\\Component\\Config\\' => 25,
         ),
         'P' => 
         array (
@@ -38,6 +40,7 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
             'PhpCsFixer\\' => 11,
+            'PDepend\\' => 8,
         ),
         'D' => 
         array (
@@ -104,9 +107,17 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
         ),
+        'Symfony\\Component\\DependencyInjection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/dependency-injection',
+        ),
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Symfony\\Component\\Config\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/config',
         ),
         'Psr\\Log\\' => 
         array (
@@ -124,6 +135,10 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
         array (
             0 => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/src',
         ),
+        'PDepend\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pdepend/pdepend/src/main/php/PDepend',
+        ),
         'Doctrine\\Common\\Lexer\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
@@ -139,6 +154,16 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
         'Composer\\Semver\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/semver/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'PHPMD\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpmd/phpmd/src/main/php',
+            ),
         ),
     );
 
@@ -207,6 +232,7 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92::$classMap;
 
         }, null, ClassLoader::class);
