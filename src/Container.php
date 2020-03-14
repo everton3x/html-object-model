@@ -32,24 +32,24 @@ class Container extends EntityAbstract
      * Adds a new node to the container.
      *
      * @param  mixed              $node The new node.
-     * @param  number|string|null $id   An optional id to node.
+     * @param  number|string|null $attrId   An optional id to node.
      * @return Container
      */
-    public function addNode($node, $id = null): Container
+    public function addNode($node, $attrId = null): Container
     {
-        $this->nodes[$id] = $node;
+        $this->nodes[$attrId] = $node;
         return $this;
     }
 
     /**
      * Checks whether a given node id exists in the list of nodes.
      *
-     * @param  string|number $id
+     * @param  string|number $attrId
      * @return boolean
      */
-    public function hasNodeId($id): bool
+    public function hasNodeId($attrId): bool
     {
-        return array_key_exists($id, $this->nodes);
+        return array_key_exists($attrId, $this->nodes);
     }
 
     /**
@@ -67,16 +67,16 @@ class Container extends EntityAbstract
     /**
      * Get the node using your id.
      *
-     * @param  string|number $id
+     * @param  string|number $attrId
      * @return void
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
      */
-    public function getNodeById($id)
+    public function getNodeById($attrId)
     {
-        if ($this->hasNodeId($id) === false) {
-            throw new UnexpectedValueException("Node id not found: $id");
+        if ($this->hasNodeId($attrId) === false) {
+            throw new UnexpectedValueException("Node id not found: $attrId");
         }
-        return $this->nodes[$id];
+        return $this->nodes[$attrId];
     }
 
     /**
@@ -112,17 +112,17 @@ class Container extends EntityAbstract
     /**
      * Removes a node using its id.
      *
-     * @param  string|number $id
+     * @param  string|number $attrId
      * @return Container
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
      */
-    public function removeNodeById($id): Container
+    public function removeNodeById($attrId): Container
     {
-        if ($this->hasNodeId($id) === false) {
-            throw new UnexpectedValueException("Node id not found: $id");
+        if ($this->hasNodeId($attrId) === false) {
+            throw new UnexpectedValueException("Node id not found: $attrId");
         }
 
-        unset($this->nodes[$id]);
+        unset($this->nodes[$attrId]);
         return $this;
     }
 
@@ -135,11 +135,12 @@ class Container extends EntityAbstract
      */
     public function removeNode($node): Container
     {
-        if (($id = $this->hasNode($node)) === false) {
+        $attrId = $this->hasNode($node);
+        if ($attrId === false) {
             throw new UnexpectedValueException("Node not found.");
         }
 
-        unset($this->nodes[$id]);
+        unset($this->nodes[$attrId]);
         return $this;
     }
 
@@ -148,18 +149,18 @@ class Container extends EntityAbstract
      *
      * The new node will keep the same id as the old node.
      *
-     * @param  string|number $id      the replaced node id.
+     * @param  string|number $attrId      the replaced node id.
      * @param  mixed         $newNode The new node
      * @return Container
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
      */
-    public function replaceNodeById($id, $newNode): Container
+    public function replaceNodeById($attrId, $newNode): Container
     {
-        if ($this->hasNodeId($id) === false) {
-            throw new UnexpectedValueException("Node id not found: $id");
+        if ($this->hasNodeId($attrId) === false) {
+            throw new UnexpectedValueException("Node id not found: $attrId");
         }
 
-        $this->nodes[$id] = $newNode;
+        $this->nodes[$attrId] = $newNode;
         return $this;
     }
 
@@ -173,11 +174,12 @@ class Container extends EntityAbstract
      */
     public function replaceNode($oldNode, $newNode): Container
     {
-        if (($id = $this->hasNode($oldNode)) === false) {
+        $attrId = $this->hasNode($oldNode);
+        if ($attrId === false) {
             throw new UnexpectedValueException("Node not found.");
         }
 
-        $this->nodes[$id] = $newNode;
+        $this->nodes[$attrId] = $newNode;
         return $this;
     }
 
@@ -203,6 +205,7 @@ class Container extends EntityAbstract
             return '';
         }
         
+        $code = [];
         foreach ($this->nodes as $node) {
             /* Here we need to convert the nodes to a string because if a node is an EntityAbstract instance
             it will automatically be converted to a string.

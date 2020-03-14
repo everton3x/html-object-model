@@ -81,11 +81,11 @@ abstract class EntityAbstract
      */
     public function getAttribute(string $name)
     {
-        if (array_key_exists($name, $this->attributes)) {
-            return $this->attributes[$name];
-        } else {
+        if (!array_key_exists($name, $this->attributes)) {
             throw new UnexpectedValueException("Attribute not defined: $name");
         }
+
+        return $this->attributes[$name];
     }
 
     /**
