@@ -1,4 +1,4 @@
-name: Main workflow
+name: Code Quality
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -27,3 +27,6 @@ jobs:
 
     - name: Run PHP CS Fixer
       run: composer run-script php-cs-fixer
+
+    - name: Run PHP Code Sniffer
+      run: ./vendor/bin/phpcs --standard=PSR1,PSR2 src/

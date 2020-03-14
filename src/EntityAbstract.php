@@ -36,7 +36,7 @@ abstract class EntityAbstract
     /**
      * Each html tag represents an entity.
      *
-     * @param string $tag Tag of the HTML entity.
+     * @param  string $tag Tag of the HTML entity.
      * @throws UnexpectedValueException Throws an UnexpectedValueException exception if the $tag value is zero lenght.
      */
     public function __construct(string $tag)
@@ -62,8 +62,8 @@ abstract class EntityAbstract
      *
      * If the attribute is already configured, it updates the value.
      *
-     * @param string $name Attribute name.
-     * @param string|number $value Attribute value.
+     * @param  string        $name  Attribute name.
+     * @param  string|number $value Attribute value.
      * @return Element
      */
     public function setAttribute(string $name, $value): Element
@@ -75,7 +75,7 @@ abstract class EntityAbstract
     /**
      * Returns a specific attribute represented by $name.
      *
-     * @param string $name
+     * @param  string $name
      * @return string|number
      * @throws UnexpectedValueException throws an UnexpectedValueException exception if the attribute is not defined.
      */
@@ -111,7 +111,8 @@ abstract class EntityAbstract
             return '';
         }
         
-        // It was necessary to start the array with an empty entity to place a space between the tag and the first attribute.
+        // It was necessary to start the array with an empty entity to place a space between
+        // the tag and the first attribute.
         $attr = [''];
 
         foreach ($this->attributes as $name => $value) {
@@ -124,7 +125,7 @@ abstract class EntityAbstract
     /**
      * See the magic __toString method in the  PHP documentation.
      *
-     * @link https://www.php.net/manual/en/language.oop5.magic.php#object.tostring
+     * @link   https://www.php.net/manual/en/language.oop5.magic.php#object.tostring
      * @return string
      */
     public function __toString()

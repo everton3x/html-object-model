@@ -16,7 +16,7 @@ class Container extends EntityAbstract
     /**
      * HTML entity that supports children (nodes).
      *
-     * @param string $tag Tag of the HTML element.
+     * @param  string $tag Tag of the HTML element.
      * @throws UnexpectedValueException Throws an UnexpectedValueException exception if the $tag value is zero lenght.
      */
     public function __construct(string $tag)
@@ -31,8 +31,8 @@ class Container extends EntityAbstract
     /**
      * Adds a new node to the container.
      *
-     * @param mixed $node The new node.
-     * @param number|string|null $id An optional id to node.
+     * @param  mixed              $node The new node.
+     * @param  number|string|null $id   An optional id to node.
      * @return Container
      */
     public function addNode($node, $id = null): Container
@@ -44,7 +44,7 @@ class Container extends EntityAbstract
     /**
      * Checks whether a given node id exists in the list of nodes.
      *
-     * @param string|number $id
+     * @param  string|number $id
      * @return boolean
      */
     public function hasNodeId($id): bool
@@ -55,7 +55,7 @@ class Container extends EntityAbstract
     /**
      * Checks whether a given node exists in the list of nodes.
      *
-     * @param mixed $node
+     * @param  mixed $node
      * @return string|number|boolean Returns the node id if it exists, if not, returns false.
      * This method can return false "false", if the returned id is zero, so always use === when checking.
      */
@@ -67,7 +67,7 @@ class Container extends EntityAbstract
     /**
      * Get the node using your id.
      *
-     * @param string|number $id
+     * @param  string|number $id
      * @return void
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
      */
@@ -112,7 +112,7 @@ class Container extends EntityAbstract
     /**
      * Removes a node using its id.
      *
-     * @param string|number $id
+     * @param  string|number $id
      * @return Container
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
      */
@@ -129,7 +129,7 @@ class Container extends EntityAbstract
     /**
      * Removes a node.
      *
-     * @param mixed $node
+     * @param  mixed $node
      * @return Container
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the node is not found.
      */
@@ -148,8 +148,8 @@ class Container extends EntityAbstract
      *
      * The new node will keep the same id as the old node.
      *
-     * @param string|number $id the replaced node id.
-     * @param mixed $newNode The new node
+     * @param  string|number $id      the replaced node id.
+     * @param  mixed         $newNode The new node
      * @return Container
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
      */
@@ -166,8 +166,8 @@ class Container extends EntityAbstract
     /**
      * Replaces one node with another.
      *
-     * @param mixed $oldNode The old node.
-     * @param mixed $newNode the new node.
+     * @param  mixed $oldNode The old node.
+     * @param  mixed $newNode the new node.
      * @return Container
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the node is not found.
      */
