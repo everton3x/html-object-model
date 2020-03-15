@@ -10,7 +10,7 @@ class Container extends EntityAbstract
     /**
      * List of entity nodes.
      *
-     * @var array
+     * @var array<mixed>
      */
     protected $nodes = [];
     //protected array $nodes = [];
@@ -50,7 +50,7 @@ class Container extends EntityAbstract
      */
     public function hasNodeId($attrId): bool
     {
-        return array_key_exists($attrId, $this->nodes);
+        return array_key_exists((string) $attrId, $this->nodes);
     }
 
     /**
@@ -69,7 +69,7 @@ class Container extends EntityAbstract
      * Get the node using your id.
      *
      * @param  string|number $attrId
-     * @return void
+     * @return mixed
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
      */
     public function getNodeById($attrId)
@@ -83,7 +83,7 @@ class Container extends EntityAbstract
     /**
      * Get all the nodes.
      *
-     * @return array
+     * @return array<mixed>
      */
     public function getAllNodes(): array
     {
@@ -103,7 +103,7 @@ class Container extends EntityAbstract
     /**
      * Get all nodes id.
      *
-     * @return array
+     * @return array<string|number>
      */
     public function getAllNodesId(): array
     {

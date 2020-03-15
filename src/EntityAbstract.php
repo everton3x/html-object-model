@@ -23,7 +23,7 @@ abstract class EntityAbstract
     /**
      * List with the attribute = value pairs of the HTML entity.
      *
-     * @var array
+     * @var array<string>
      */
     protected $attributes = [];
     //protected array $attributes = [];
@@ -66,11 +66,11 @@ abstract class EntityAbstract
      *
      * @param  string        $name  Attribute name.
      * @param  string|number $value Attribute value.
-     * @return Element
+     * @return EntityAbstract
      */
     public function setAttribute(string $name, $value): EntityAbstract
     {
-        $this->attributes[$name] = $value;
+        $this->attributes[$name] = (string) $value;
         return $this;
     }
 
@@ -93,7 +93,7 @@ abstract class EntityAbstract
     /**
      * Returns a list of all attributes.
      *
-     * @return array
+     * @return array<string>
      */
     public function getAllAttributes(): array
     {
