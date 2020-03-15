@@ -66,7 +66,7 @@ abstract class EntityAbstract
      * @param  string|number $value Attribute value.
      * @return Element
      */
-    public function setAttribute(string $name, $value): Element
+    public function setAttribute(string $name, $value): Entity
     {
         $this->attributes[$name] = $value;
         return $this;
