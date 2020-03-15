@@ -8,6 +8,7 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
@@ -41,6 +42,10 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
             'Psr\\Container\\' => 14,
             'PhpCsFixer\\' => 11,
             'PDepend\\' => 8,
+        ),
+        'H' => 
+        array (
+            'HtmlObjectModel\\' => 16,
         ),
         'D' => 
         array (
@@ -138,6 +143,10 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
         'PDepend\\' => 
         array (
             0 => __DIR__ . '/..' . '/pdepend/pdepend/src/main/php/PDepend',
+        ),
+        'HtmlObjectModel\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'Doctrine\\Common\\Lexer\\' => 
         array (

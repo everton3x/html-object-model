@@ -28,3 +28,7 @@ jobs:
 
     - name: Run PHP Copy/Paste Detector
       run: ./vendor/bin/phpcpd --fuzzy src/
+
+    - name: Run PHP Stan
+      run: ./vendor/bin/phpstan analyse -c phpstan.neon -l 0 src/
+      

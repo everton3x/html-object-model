@@ -12,7 +12,8 @@ class Container extends EntityAbstract
      *
      * @var array
      */
-    protected array $nodes = [];
+    protected $nodes = [];
+    //protected array $nodes = [];
     /**
      * HTML entity that supports children (nodes).
      *

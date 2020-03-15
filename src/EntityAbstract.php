@@ -25,13 +25,15 @@ abstract class EntityAbstract
      *
      * @var array
      */
-    protected array $attributes = [];
+    protected $attributes = [];
+    //protected array $attributes = [];
     /**
      * Html tag of the entity.
      *
      * @var string
      */
-    protected string $tag = '';
+    protected $tag = '';
+    //protected string $tag = '';
 
     /**
      * Each html tag represents an entity.
@@ -66,7 +68,7 @@ abstract class EntityAbstract
      * @param  string|number $value Attribute value.
      * @return Element
      */
-    public function setAttribute(string $name, $value): Entity
+    public function setAttribute(string $name, $value): EntityAbstract
     {
         $this->attributes[$name] = $value;
         return $this;
