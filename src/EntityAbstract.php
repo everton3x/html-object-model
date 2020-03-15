@@ -118,7 +118,7 @@ abstract class EntityAbstract
         $attr = [''];
 
         foreach ($this->attributes as $name => $value) {
-            $attr[] = "$name='$value'";
+            $attr[] = sprintf('%s="%s"', $name, $value);
         }
         
         return join(' ', $attr);
