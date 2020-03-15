@@ -32,8 +32,8 @@ class Container extends EntityAbstract
     /**
      * Adds a new node to the container.
      *
-     * @param  mixed              $node The new node.
-     * @param  number|string|null $attrId   An optional id to node.
+     * @param  mixed              $node   The new node.
+     * @param  number|string|null $attrId An optional id to node.
      * @return Container
      */
     public function addNode($node, $attrId = null): Container
@@ -150,7 +150,7 @@ class Container extends EntityAbstract
      *
      * The new node will keep the same id as the old node.
      *
-     * @param  string|number $attrId      the replaced node id.
+     * @param  string|number $attrId  the replaced node id.
      * @param  mixed         $newNode The new node
      * @return Container
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
