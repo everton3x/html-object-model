@@ -15,8 +15,5 @@
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "^2.8",
         "sebastian/phpcpd": "^5.0"
-    },
-    "scripts": {
-        "php-cs-fixer": ["./vendor/bin/php-cs-fixer fix src"]
     }
 }
