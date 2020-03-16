@@ -21,4 +21,4 @@ jobs:
           engine: clean/phpdoc-md
           class_root_namespace: Html Object Model
           include: |
-            \\**\\
+            \\src\\**\\
