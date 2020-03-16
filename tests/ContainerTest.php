@@ -3,150 +3,214 @@
 use HtmlObjectModel\Container;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \HtmlObjectModel\Container
+ */
 class ContainerTest extends TestCase
 {
-    protected $entity = null;
-
-    public function setUp():void
-    {
-        $this->entity = new Container('div');
-    }
-
+    /**
+     * @covers \HtmlObjectModel\Container::__construct
+     *
+     * @return void
+     */
     public function testConstruct()
     {
-        $this->assertEquals('div', $this->entity->getTag());
+        $entity = new Container('div');
+        $this->assertEquals('div', $entity->getTag());
     }
 
-    public function testGetTag()
-    {
-        $this->assertEquals('div', $this->entity->getTag());
-    }
-
-    public function testSetAttribute()
-    {
-        $this->assertInstanceOf(Container::class, $this->entity->setAttribute('class', 'mystyle'));
-        $this->assertEquals('mystyle', $this->entity->getAttribute('class'));
-    }
-
-    public function testGetAttribute()
-    {
-        $this->entity->setAttribute('class', 'mystyle');
-        $this->assertEquals('mystyle', $this->entity->getAttribute('class'));
-    }
-
-    public function testGetAllAttributes()
-    {
-        $attr = [
-            'name' => 'el1',
-            'class' => 'mystyle'
-        ];
-
-        $this->entity->setAttribute('name', 'el1');
-        $this->entity->setAttribute('class', 'mystyle');
-        
-        $this->assertEquals($attr, $this->entity->getAllAttributes());
-    }
-
+    /**
+     * @covers \HtmlObjectModel\Container::addNode
+     *
+     * @return void
+     */
     public function testAddNode()
     {
         $node = 'New node';
         $nodeId = 'node1';
-        $this->assertInstanceOf(Container::class, $this->entity->addNode($node, $nodeId));
-        $this->assertEquals($node, $this->entity->getNodeById($nodeId));
-        $this->assertEquals($nodeId, $this->entity->hasNode($node));
+        $entity = new Container('div');
+        $this->assertInstanceOf(Container::class, $entity->addNode($node, $nodeId));
+        $this->assertEquals($node, $entity->getNodeById($nodeId));
+        $this->assertEquals($nodeId, $entity->hasNode($node));
     }
 
+    /**
+     * @covers \HtmlObjectModel\Container::hasNodeId
+     *
+     * @return void
+     */
     public function testHasNodeId()
     {
         $node = 'New node';
         $nodeId = 'node1';
-        $this->entity->addNode($node, $nodeId);
+        $entity = new Container('div');
+        $entity->addNode($node, $nodeId);
         
-        $this->assertTrue($this->entity->hasNodeId($nodeId));
-        $this->assertFalse($this->entity->hasNodeId('unknowNodeId'));
+        $this->assertTrue($entity->hasNodeId($nodeId));
+        $this->assertFalse($entity->hasNodeId('unknowNodeId'));
     }
 
+    /**
+     * @covers \HtmlObjectModel\Container::hasNode
+     *
+     * @return void
+     */
     public function testHasNode()
     {
         $node = 'New node';
         $nodeId = 'node1';
-        $this->entity->addNode($node, $nodeId);
+        $entity = new Container('div');
+        $entity->addNode($node, $nodeId);
         
-        $this->assertEquals($nodeId, $this->entity->hasNode($node));
-        $this->assertFalse($this->entity->hasNode('unknowId'));
+        $this->assertEquals($nodeId, $entity->hasNode($node));
+        $this->assertFalse($entity->hasNode('unknowId'));
     }
 
+    /**
+     * @covers \HtmlObjectModel\Container::getNodeById
+     *
+     * @return void
+     */
     public function testGetNodeById()
     {
         $node = 'New node';
         $nodeId = 'node1';
-        $this->entity->addNode($node, $nodeId);
+        $entity = new Container('div');
+        $entity->addNode($node, $nodeId);
         
-        $this->assertEquals($node, $this->entity->getNodeById($nodeId));
+        $this->assertEquals($node, $entity->getNodeById($nodeId));
         
         $this->expectException(UnexpectedValueException::class);
-        $this->entity->getNodeById('unknowId');
+        $entity->getNodeById('unknowId');
     }
 
+    /**
+     * @covers \HtmlObjectModel\Container::getAllNodes
+     *
+     * @return void
+     */
     public function testGetAllNodes()
     {
         $nodes = ['Node1', 'Node2'];
-        $this->entity->addNode('Node1');
-        $this->entity->addNode('Node2');
-        $this->assertEquals($nodes, $this->entity->getAllNodes());
+        $entity = new Container('div');
+        $entity->addNode('Node1');
+        $entity->addNode('Node2');
+        $this->assertEquals($nodes, $entity->getAllNodes());
     }
 
+    /**
+     * @covers \HtmlObjectModel\Container::countNodes
+     *
+     * @return void
+     */
     public function testCountNodes()
     {
-        $nodes = ['Node1', 'Node2'];
-        $this->entity->addNode('Node1');
-        $this->entity->addNode('Node2');
-        $this->assertEquals(2, $this->entity->countNodes());
+        $entity = new Container('div');
+        $entity->addNode('Node1');
+        $entity->addNode('Node2');
+        $this->assertEquals(2, $entity->countNodes());
     }
 
+    /**
+     * @covers \HtmlObjectModel\Container::removeNodeById
+     *
+     * @return void
+     */
     public function testRemoveNodeById()
     {
-        $nodes = ['Node1', 'Node2'];
-        $this->entity->addNode('Node1');
-        $this->entity->addNode('Node2');
-        $this->assertInstanceOf(Container::class, $this->entity->removeNodeById(0));
-        $this->assertEquals([1 => 'Node2'], $this->entity->getAllNodes());
+        $entity = new Container('div');
+        $entity->addNode('Node1');
+        $entity->addNode('Node2');
+        $this->assertInstanceOf(Container::class, $entity->removeNodeById(0));
+        $this->assertEquals([1 => 'Node2'], $entity->getAllNodes());
     }
 
+    /**
+     * @covers \HtmlObjectModel\Container::removeNode
+     *
+     * @return void
+     */
     public function testRemoveNode()
     {
-        $nodes = ['Node1', 'Node2'];
-        $this->entity->addNode('Node1');
-        $this->entity->addNode('Node2');
-        $this->assertInstanceOf(Container::class, $this->entity->removeNode('Node1'));
-        $this->assertEquals([1 => 'Node2'], $this->entity->getAllNodes());
+        $entity = new Container('div');
+        $entity->addNode('Node1');
+        $entity->addNode('Node2');
+        $this->assertInstanceOf(Container::class, $entity->removeNode('Node1'));
+        $this->assertEquals([1 => 'Node2'], $entity->getAllNodes());
     }
 
+    /**
+     * @covers \HtmlObjectModel\Container::replaceNodeById
+     *
+     * @return void
+     */
     public function testReplaceNodeById()
     {
         $nodes = ['Node1', 'Node2'];
-        $this->entity->addNode('Node1');
-        $this->entity->addNode('Node2');
-        $this->assertInstanceOf(Container::class, $this->entity->replaceNodeById(0, 'Node0'));
+        $entity = new Container('div');
+        $entity->addNode('Node1');
+        $entity->addNode('Node2');
+        $this->assertInstanceOf(Container::class, $entity->replaceNodeById(0, 'Node0'));
         $nodes[0] = 'Node0';
-        $this->assertEquals($nodes, $this->entity->getAllNodes());
+        $this->assertEquals($nodes, $entity->getAllNodes());
     }
 
+    /**
+     * @covers \HtmlObjectModel\Container::replaceNode
+     *
+     * @return void
+     */
     public function testReplaceNode()
     {
         $nodes = ['Node1', 'Node2'];
-        $this->entity->addNode('Node1');
-        $this->entity->addNode('Node2');
-        $this->assertInstanceOf(Container::class, $this->entity->replaceNode('Node1', 'Node0'));
+        $entity = new Container('div');
+        $entity->addNode('Node1');
+        $entity->addNode('Node2');
+        $this->assertInstanceOf(Container::class, $entity->replaceNode('Node1', 'Node0'));
         $nodes[0] = 'Node0';
-        $this->assertEquals($nodes, $this->entity->getAllNodes());
+        $this->assertEquals($nodes, $entity->getAllNodes());
     }
 
+    /**
+     * @covers \HtmlObjectModel\Container::build
+     *
+     * @return void
+     */
     public function testBuild()
     {
-        $this->entity->setAttribute('class', 'mystyle');
-        $this->entity->addNode('Node');
+        $entity = new Container('div');
+        $entity->setAttribute('class', 'mystyle');
+        $entity->addNode('Node');
         $this->expectOutputString('<div class="mystyle">Node</div>');
-        print $this->entity;
+        print $entity;
+    }
+
+    /**
+     * @covers \HtmlObjectModel\Container::buildNodes
+     *
+     * @return void
+     */
+    public function testBuildNodes()
+    {
+        $entity = new Container('div');
+        $entity->addNode('Node 1');
+        $this->assertEquals('Node 1', $this->invokeMethod($entity, 'buildNodes'));
+    }
+
+    /**
+     * Call protected/private method of a class.
+     *
+     * @param object &$object    Instantiated object that we will run method on.
+     * @param string $methodName Method name to call
+     * @param array  $parameters Array of parameters to pass into method.
+     * @link http://leandrolisura.com.br/phpunit-testes-em-metodos-privados-e-protegidos-da-classe/
+     * @return mixed Method return.
+     */
+    public function invokeMethod(&$object, string $methodName, array $parameters = [])
+    {
+        $reflection = new \ReflectionClass(get_class($object));
+        $method = $reflection->getMethod($methodName);
+        $method->setAccessible(true);
+        return $method->invokeArgs($object, $parameters);
     }
 }

@@ -6,17 +6,26 @@
     "authors": [
         {
             "name": "Everton da Rosa",
-            "email": "everton3x@gmail.com"
+            "email": "everton3x@gmail.com",
+            "homepage": "https://everton3x.github.io",
+            "role": "Developer"
         }
     ],
-    "require": {},
+    "support": {
+        "issues": "https://github.com/everton3x/html-object-model/issues",
+        "docs": "https://everton3x.github.io/html-object-model/"
+    },
+    "require": {
+        "php": "^7.4"
+    },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "^2.8",
         "sebastian/phpcpd": "^5.0",
         "phpstan/phpstan": "^0.12.14",
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.0",
+        "phpunit/php-code-coverage": "^8.0"
     },
     "autoload-dev": {
         "psr-4": {

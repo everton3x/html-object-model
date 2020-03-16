@@ -1,3 +1,3 @@
 @echo off
 
-vendor/bin/phpunit tests/
+vendor/bin/phpunit --coverage-text --testdox --whitelist src/ tests/

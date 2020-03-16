@@ -12,7 +12,6 @@ class Container extends EntityAbstract
      *
      * @var array<mixed>
      */
-    //protected $nodes = [];
     protected array $nodes = [];
     /**
      * HTML entity that supports children (nodes).
@@ -38,7 +37,7 @@ class Container extends EntityAbstract
      */
     public function addNode($node, $nodeId = null): Container
     {
-        if(is_null($nodeId)){
+        if (is_null($nodeId)) {
             $this->nodes[] = $node;
             return $this;
         }

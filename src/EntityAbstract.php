@@ -25,7 +25,6 @@ abstract class EntityAbstract
      *
      * @var array<string>
      */
-    //protected $attributes = [];
     protected array $attributes = [];
     /**
      * Html tag of the entity.

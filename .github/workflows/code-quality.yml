@@ -33,5 +33,5 @@ jobs:
       run: ./vendor/bin/phpstan analyse -c phpstan.neon -l 8 src/
 
     - name: Run PHPUnit Tests
-      run: ./vendor/bin/phpunit tests/
+      run: ./vendor/bin/phpunit --coverage-text --testdox --whitelist src/ tests/
       
