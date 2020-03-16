@@ -1,37 +1,37 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use HtmlObjectModel\Element;
+use PHPUnit\Framework\TestCase;
 
 class ElementTest extends TestCase
 {
-    protected $element = null;
+    protected $entity = null;
 
     public function setUp():void
     {
-        $this->element = new Element('input');
+        $this->entity = new Element('input');
     }
 
     public function testConstruct()
     {
-        $this->assertEquals('input', $this->element->getTag());
+        $this->assertEquals('input', $this->entity->getTag());
     }
 
     public function testGetTag()
     {
-        $this->assertEquals('input', $this->element->getTag());
+        $this->assertEquals('input', $this->entity->getTag());
     }
 
     public function testSetAttribute()
     {
-        $this->assertInstanceOf(Element::class, $this->element->setAttribute('name', 'fld1'));
-        $this->assertEquals('fld1', $this->element->getAttribute('name'));
+        $this->assertInstanceOf(Element::class, $this->entity->setAttribute('name', 'fld1'));
+        $this->assertEquals('fld1', $this->entity->getAttribute('name'));
     }
 
     public function testGetAttribute()
     {
-        $this->element->setAttribute('name', 'fld1');
-        $this->assertEquals('fld1', $this->element->getAttribute('name'));
+        $this->entity->setAttribute('name', 'fld1');
+        $this->assertEquals('fld1', $this->entity->getAttribute('name'));
     }
 
     public function testGetAllAttributes()
@@ -41,17 +41,17 @@ class ElementTest extends TestCase
             'type' => 'text'
         ];
 
-        $this->element->setAttribute('name', 'fld1');
-        $this->element->setAttribute('type', 'text');
+        $this->entity->setAttribute('name', 'fld1');
+        $this->entity->setAttribute('type', 'text');
         
-        $this->assertEquals($attr, $this->element->getAllAttributes());
+        $this->assertEquals($attr, $this->entity->getAllAttributes());
     }
 
     public function testBuild()
     {
-        $this->element->setAttribute('name', 'fld1');
-        $this->element->setAttribute('type', 'text');
+        $this->entity->setAttribute('name', 'fld1');
+        $this->entity->setAttribute('type', 'text');
         $this->expectOutputString('<input name="fld1" type="text">');
-        print $this->element;
+        print $this->entity;
     }
 }

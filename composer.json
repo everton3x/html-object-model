@@ -16,7 +16,8 @@
         "phpmd/phpmd": "^2.8",
         "sebastian/phpcpd": "^5.0",
         "phpstan/phpstan": "^0.12.14",
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.0",
+        "phpunit/php-code-coverage": "^8.0"
     },
     "autoload-dev": {
         "psr-4": {

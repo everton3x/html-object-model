@@ -25,15 +25,15 @@ abstract class EntityAbstract
      *
      * @var array<string>
      */
-    protected $attributes = [];
-    //protected array $attributes = [];
+    //protected $attributes = [];
+    protected array $attributes = [];
     /**
      * Html tag of the entity.
      *
      * @var string
      */
-    protected $tag = '';
-    //protected string $tag = '';
+    //protected $tag = '';
+    protected string $tag = '';
 
     /**
      * Each html tag represents an entity.

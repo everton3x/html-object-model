@@ -12,8 +12,8 @@ class Container extends EntityAbstract
      *
      * @var array<mixed>
      */
-    protected $nodes = [];
-    //protected array $nodes = [];
+    //protected $nodes = [];
+    protected array $nodes = [];
     /**
      * HTML entity that supports children (nodes).
      *
@@ -33,24 +33,28 @@ class Container extends EntityAbstract
      * Adds a new node to the container.
      *
      * @param  mixed              $node   The new node.
-     * @param  number|string|null $attrId An optional id to node.
+     * @param  number|string|null $nodeId An optional id to node.
      * @return Container
      */
-    public function addNode($node, $attrId = null): Container
+    public function addNode($node, $nodeId = null): Container
     {
-        $this->nodes[$attrId] = $node;
+        if(is_null($nodeId)){
+            $this->nodes[] = $node;
+            return $this;
+        }
+        $this->nodes[$nodeId] = $node;
         return $this;
     }
 
     /**
      * Checks whether a given node id exists in the list of nodes.
      *
-     * @param  string|number $attrId
+     * @param  string|number $nodeId
      * @return boolean
      */
-    public function hasNodeId($attrId): bool
+    public function hasNodeId($nodeId): bool
     {
-        return array_key_exists((string) $attrId, $this->nodes);
+        return array_key_exists((string) $nodeId, $this->nodes);
     }
 
     /**
@@ -68,16 +72,16 @@ class Container extends EntityAbstract
     /**
      * Get the node using your id.
      *
-     * @param  string|number $attrId
+     * @param  string|number $nodeId
      * @return mixed
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
      */
-    public function getNodeById($attrId)
+    public function getNodeById($nodeId)
     {
-        if ($this->hasNodeId($attrId) === false) {
-            throw new UnexpectedValueException("Node id not found: $attrId");
+        if ($this->hasNodeId($nodeId) === false) {
+            throw new UnexpectedValueException("Node id not found: $nodeId");
         }
-        return $this->nodes[$attrId];
+        return $this->nodes[$nodeId];
     }
 
     /**
@@ -113,17 +117,17 @@ class Container extends EntityAbstract
     /**
      * Removes a node using its id.
      *
-     * @param  string|number $attrId
+     * @param  string|number $nodeId
      * @return Container
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
      */
-    public function removeNodeById($attrId): Container
+    public function removeNodeById($nodeId): Container
     {
-        if ($this->hasNodeId($attrId) === false) {
-            throw new UnexpectedValueException("Node id not found: $attrId");
+        if ($this->hasNodeId($nodeId) === false) {
+            throw new UnexpectedValueException("Node id not found: $nodeId");
         }
 
-        unset($this->nodes[$attrId]);
+        unset($this->nodes[$nodeId]);
         return $this;
     }
 
@@ -136,12 +140,12 @@ class Container extends EntityAbstract
      */
     public function removeNode($node): Container
     {
-        $attrId = $this->hasNode($node);
-        if ($attrId === false) {
+        $nodeId = $this->hasNode($node);
+        if ($nodeId === false) {
             throw new UnexpectedValueException("Node not found.");
         }
 
-        unset($this->nodes[$attrId]);
+        unset($this->nodes[$nodeId]);
         return $this;
     }
 
@@ -150,18 +154,18 @@ class Container extends EntityAbstract
      *
      * The new node will keep the same id as the old node.
      *
-     * @param  string|number $attrId  the replaced node id.
+     * @param  string|number $nodeId  the replaced node id.
      * @param  mixed         $newNode The new node
      * @return Container
      * @throws UnexpectedValueException Throws an exception of type UnexpectedValueException if the id is not found.
      */
-    public function replaceNodeById($attrId, $newNode): Container
+    public function replaceNodeById($nodeId, $newNode): Container
     {
-        if ($this->hasNodeId($attrId) === false) {
-            throw new UnexpectedValueException("Node id not found: $attrId");
+        if ($this->hasNodeId($nodeId) === false) {
+            throw new UnexpectedValueException("Node id not found: $nodeId");
         }
 
-        $this->nodes[$attrId] = $newNode;
+        $this->nodes[$nodeId] = $newNode;
         return $this;
     }
 
