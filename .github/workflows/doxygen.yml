@@ -1,0 +1,19 @@
+name: Doxygen project documentation
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - 'v*'
+
+jobs:
+  update_wiki:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkouting project code...
+        uses: mattnotmitt/doxygen-action@v1
+      - name: Updating wiki...
+        uses: impresscms-dev/phpdocs-wiki-update-action@master
+        with:
+          doxyfile-path: 'docs'
