@@ -2,6 +2,11 @@
 **It provides web developers with an abstraction for html entities similar to the Document Object Model.**
 
 ![](https://github.com/everton3x/html-object-model/workflows/Code%20Quality/badge.svg)
+![](https://github.com/everton3x/html-object-model/workflows/Automatic%20update%20project%20documentation/badge.svg)
+![](https://img.shields.io/github/issues/everton3x/html-object-model)
+![](https://img.shields.io/github/forks/everton3x/html-object-model)
+![](https://img.shields.io/github/stars/everton3x/html-object-model)
+![](https://img.shields.io/github/license/everton3x/html-object-model)
 
 Anyone who uses [PHP](https://php.net) for web development is used to using object orientation daily. However, when the developer goes on to create the user interface, he invariably has to leave object orientation to write markup code. Even if the web developer uses some template tools, like [Twig](https://twig.symfony.com/), even so, he needs to have a lot of work with *HTML* making the models, besides needing to use a whole library of templates, usually bigger and with more features than necessary.
 
