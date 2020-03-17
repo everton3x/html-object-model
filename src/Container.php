@@ -68,7 +68,7 @@ class Container extends EntityAbstract
 
     /**
      * Builds the html code of the nodes.
-     * 
+     *
      * @codeCoverageIgnore
      * @return string
      */

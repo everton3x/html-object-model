@@ -112,7 +112,7 @@ abstract class EntityAbstract
 
     /**
      * See the magic __toString method in the  PHP documentation.
-     * 
+     *
      * @codeCoverageIgnore
      * @link   https://www.php.net/manual/en/language.oop5.magic.php#object.tostring
      * @return string
