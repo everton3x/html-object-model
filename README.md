@@ -57,5 +57,7 @@ If you want to contribute to the project, make a fork, create a branch for each 
 
 **Please, before sending a pull request, make sure your code goes through Github Action Code Quality. In the `bin` directory you will find the scripts to verify this.**
 
+**Don't forget to use PHPUnit tests before submitting your code and, if you add features, please include tests for them.**
+
 ## Mantainer
 [Everton da Rosa](https://everton3x.github.io)
