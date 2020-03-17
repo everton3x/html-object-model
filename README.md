@@ -50,7 +50,7 @@ The generated html code should look something like:
 <input id="entity1" class="mystyle" name="myfield">
 ```
 
-**Html Object Model** offers many other methods for manipulating attributes and children (nodes) in *HTML* entities created with this library. Be sure to [read the documentation](https://github.com/everton3x/html-object-model/wiki) to learn about all the available features.
+**Html Object Model** offers many other methods for manipulating attributes and children (nodes) in *HTML* entities created with this library. Be sure to [read the documentation](https://github.com/everton3x/html-object-model/wiki) to learn about all the available features or read the [API Documentation](https://everton3x.github.io/html-object-model/html/).
 
 ## How to contribute
 If you want to contribute to the project, make a fork, create a branch for each feature or correction, submit a pull request and wait for my return.
