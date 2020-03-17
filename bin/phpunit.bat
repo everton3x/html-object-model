@@ -1,3 +1,3 @@
 @echo off
 
-vendor/bin/phpunit --coverage-text --testdox --whitelist src/ tests/
+vendor\bin\phpunit --coverage-html coverage --coverage-text --whitelist=src --colors --testdox .\tests
