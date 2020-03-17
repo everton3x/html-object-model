@@ -19,6 +19,7 @@ jobs:
           prefix_lines: ##### Notice: Wiki was automatic generated from project sources as project API documentation. Do not edit manually!
           wiki_github_update_token: ${{ secrets.WIKI_GITHUB_UPDATE_TOKEN }}
           wiki_github_update_user: ${{ secrets.WIKI_GITHUB_UPDATE_USER }}
+          actions_step_debug: ${{ secrets.ACTIONS_STEP_DEBUG }}
           engine: clean/phpdoc-md
           class_root_namespace: Html Object Model
           include: |
