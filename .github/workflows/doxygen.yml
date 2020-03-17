@@ -16,4 +16,4 @@ jobs:
       - name: Updating wiki...
         uses: impresscms-dev/phpdocs-wiki-update-action@master
         with:
-          doxyfile-path: 'docs'
+          doxyfile-path: './Doxyfile'
