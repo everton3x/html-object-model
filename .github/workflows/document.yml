@@ -19,8 +19,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Install PHPDocumentor
-      run: composer require --dev phpdocumentor/phpdocumentor
+    - name: Install Doxygen
+      run: sudo apt install doxygen -y
 
     - name: Generate documentation
-      run: ./vendor/bin/phpdoc -d src -t docs --encoding=utf-8 --markers=FIXME,TODO --title="Html Object Model" --visibility=public,protected,private --sourcecode
+      run: doxygen Doxyfile
