@@ -3,82 +3,25 @@
 use HtmlObjectModel\EntityAbstract;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \HtmlObjectModel\EntityAbstract
+ */
 class EntityAbstractTest extends TestCase
 {
-    /**
-     * @covers \HtmlObjectModel\EntityAbstract::__construct
-     *
-     * @return void
-     */
-    public function testConstruct()
+
+    public function testTag()
     {
         $entity = $this->getMockForAbstractClass(EntityAbstract::class, ['input']);
         $this->assertEquals('input', $entity->getTag());
     }
 
-    /**
-     * @covers \HtmlObjectModel\EntityAbstract::getTag
-     *
-     * @return void
-     */
-    public function testGetTag()
+    public function testAttributes()
     {
         $entity = $this->getMockForAbstractClass(EntityAbstract::class, ['input']);
-        $this->assertEquals('input', $entity->getTag());
-    }
-
-    /**
-     * @covers \HtmlObjectModel\EntityAbstract::setAttribute
-     *
-     * @return void
-     */
-    public function testSetAttribute()
-    {
-        $entity = $this->getMockForAbstractClass(EntityAbstract::class, ['input']);
-        $this->assertInstanceOf(EntityAbstract::class, $entity->setAttribute('name', 'fld1'));
-        $this->assertEquals('fld1', $entity->getAttribute('name'));
-    }
-
-    /**
-     * @covers \HtmlObjectModel\EntityAbstract::getAttribute
-     *
-     * @return void
-     */
-    public function testGetAttribute()
-    {
-        $entity = $this->getMockForAbstractClass(EntityAbstract::class, ['input']);
-        $entity->setAttribute('name', 'fld1');
-        $this->assertEquals('fld1', $entity->getAttribute('name'));
-    }
-
-    /**
-     * @covers \HtmlObjectModel\EntityAbstract::getAllAttributes
-     *
-     * @return void
-     */
-    public function testGetAllAttributes()
-    {
-        $attr = [
-            'name' => 'fld1',
-            'type' => 'text'
-        ];
-        $entity = $this->getMockForAbstractClass(EntityAbstract::class, ['input']);
-        $entity->setAttribute('name', 'fld1');
-        $entity->setAttribute('type', 'text');
         
-        $this->assertEquals($attr, $entity->getAllAttributes());
-    }
-
-    /**
-     * @covers \HtmlObjectModel\EntityAbstract::buildAttributes
-     *
-     * @return void
-     */
-    public function testBuildAttributes()
-    {
-        $entity = $this->getMockForAbstractClass(EntityAbstract::class, ['input']);
-        $entity->setAttribute('class', 'mystyle');
-        $this->assertEquals(' class="mystyle"', $this->invokeMethod($entity, 'buildAttributes'));
+        $this->assertInstanceOf(EntityAbstract::class, $entity->setAttribute('name', 'field1'));
+        $this->assertEquals(['name' => 'field1'], $entity->getAttributes());
+        $this->assertEquals(' name="field1"', $this->invokeMethod($entity, 'buildAttributes'));
     }
 
     /**

@@ -13,6 +13,7 @@ class Element extends EntityAbstract
     /**
      * HTML entity that does not support children.
      *
+     * @codeCoverageIgnore
      * @param  string $tag Tag of the HTML entity.
      * @throws UnexpectedValueException Throws an UnexpectedValueException exception if the $tag value is zero lenght.
      */
