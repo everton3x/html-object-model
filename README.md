@@ -53,7 +53,7 @@ The generated html code should look something like:
 **Html Object Model** offers many other methods for manipulating attributes and children (nodes) in *HTML* entities created with this library. Be sure to [read the documentation](https://github.com/everton3x/html-object-model/wiki/) to learn about all the available features and about API.
 
 ## How to contribute
-Please, see the [CONTRIBUTING](https://github.com/everton3x/html-object-model/wiki/Contributing) section on [project wiki](https://everton3x.github.io/html-object-model/wiki/).
+Please, see the [CONTRIBUTING](https://github.com/everton3x/html-object-model/wiki/Contributing) section on [project wiki](https://github.com/everton3x/html-object-model/wiki/).
 
 ## Mantainer
 [Everton da Rosa](https://everton3x.github.io)
