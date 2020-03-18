@@ -21,6 +21,6 @@ jobs:
           wiki_github_update_user: ${{ secrets.WIKI_GITHUB_UPDATE_USER }}
           actions_step_debug: ${{ secrets.ACTIONS_STEP_DEBUG }}
           engine: evert/phpdoc-md
-          class_root_namespace: Html Object Model
-          include: |
-            HtmlObjectModel\**
+          ignore:  |
+            vendor/**
+            tests/**
