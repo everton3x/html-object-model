@@ -20,7 +20,7 @@ $input1 = new Element('input');
 
 // Now, we need to configure our input. For that, we will make use of the Element::setAttribute() method.
 $input1->setAttribute('name', 'input1')
-    ->setAttribute('value', 'Some value')
+    ->setAttribute('type', 'text')
     ->setAttribute('placeholder', 'Type something here...');
 
 // The workflow of the Html Object Model is to create, mconfigure, display.
