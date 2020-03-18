@@ -41,7 +41,12 @@
         "check-code-standard": "phpcs --standard=PSR1,PSR2 src/",
         "check-mess-detector": "phpmd src/ text cleancode,codesize,controversial,design,naming,unusedcode",
         "code-static-analyse": "phpstan analyse -c phpstan.neon -l 8 src/",
-        "test-code": "phpunit --coverage-html coverage --coverage-text --whitelist=src --colors --testdox ./tests"
+        "test-code": "phpunit --coverage-html coverage --coverage-text --whitelist=src --colors --testdox ./tests",
+        "to-github": [
+            "git add .",
+            "git commit",
+            "git push"
+        ]
     },
     "scripts-descriptions": {
         "pretty-code": "Run php-cs-fixer and phpcbf",
@@ -49,6 +54,7 @@
         "check-code-standard": "Run phpcs",
         "check-mess-detector": "Run phpmd",
         "code-static-analyse": "Run phpstan",
-        "test-code": "Run phpunit"
+        "test-code": "Run phpunit",
+        "to-github": "git add + git commit + git push"
     }
 }
