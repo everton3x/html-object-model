@@ -17,7 +17,7 @@ abstract class EntityAbstract
      * Builds the html code of the entity.
      *
      * @codeCoverageIgnore
-     * @return string
+     * @return             string
      */
     abstract public function build(): string;
 
@@ -39,8 +39,8 @@ abstract class EntityAbstract
      * Each html tag represents an entity.
      *
      * @codeCoverageIgnore
-     * @param  string $tag Tag of the HTML entity.
-     * @throws UnexpectedValueException Throws an UnexpectedValueException exception if the $tag value is zero lenght.
+     * @param              string $tag Tag of the HTML entity.
+     * @throws             UnexpectedValueException Throws an UnexpectedValueException exception if the $tag value is zero lenght.
      */
     public function __construct(string $tag)
     {
@@ -90,7 +90,7 @@ abstract class EntityAbstract
      * Builds the html code of the attributes.
      *
      * @codeCoverageIgnore
-     * @return string
+     * @return             string
      */
     protected function buildAttributes(): string
     {
@@ -114,8 +114,8 @@ abstract class EntityAbstract
      * See the magic __toString method in the  PHP documentation.
      *
      * @codeCoverageIgnore
-     * @link   https://www.php.net/manual/en/language.oop5.magic.php#object.tostring
-     * @return string
+     * @link               https://www.php.net/manual/en/language.oop5.magic.php#object.tostring
+     * @return             string
      */
     public function __toString()
     {

@@ -17,8 +17,8 @@ class Container extends EntityAbstract
      * HTML entity that supports children (nodes).
      *
      * @codeCoverageIgnore
-     * @param  string $tag Tag of the HTML element.
-     * @throws UnexpectedValueException Throws an UnexpectedValueException exception if the $tag value is zero lenght.
+     * @param              string $tag Tag of the HTML element.
+     * @throws             UnexpectedValueException Throws an UnexpectedValueException exception if the $tag value is zero lenght.
      */
     public function __construct(string $tag)
     {
@@ -70,7 +70,7 @@ class Container extends EntityAbstract
      * Builds the html code of the nodes.
      *
      * @codeCoverageIgnore
-     * @return string
+     * @return             string
      */
     protected function buildNodes(): string
     {
