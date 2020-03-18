@@ -39,8 +39,8 @@ abstract class EntityAbstract
      * Each html tag represents an entity.
      *
      * @codeCoverageIgnore
-     * @param              string $tag Tag of the HTML entity.
-     * @throws             UnexpectedValueException Throws an UnexpectedValueException exception if the $tag value is zero lenght.
+     * @param string $tag Tag of the HTML entity.
+     * @throws UnexpectedValueException Throws an UnexpectedValueException exception if the $tag value is zero lenght.
      */
     public function __construct(string $tag)
     {
