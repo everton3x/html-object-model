@@ -22,5 +22,5 @@ jobs:
           actions_step_debug: ${{ secrets.ACTIONS_STEP_DEBUG }}
           engine: evert/phpdoc-md
           ignore_files:  |
-            vendor/**
-            tests/**
+            vendor
+            tests
