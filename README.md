@@ -2,7 +2,6 @@
 **It provides web developers with an abstraction for html entities similar to the Document Object Model.**
 
 ![](https://github.com/everton3x/html-object-model/workflows/Code%20Quality/badge.svg)
-![](https://github.com/everton3x/html-object-model/workflows/Automatic%20update%20project%20documentation/badge.svg)
 ![](https://img.shields.io/github/issues/everton3x/html-object-model)
 ![](https://img.shields.io/github/forks/everton3x/html-object-model)
 ![](https://img.shields.io/github/stars/everton3x/html-object-model)
