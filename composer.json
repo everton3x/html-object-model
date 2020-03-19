@@ -13,7 +13,7 @@
     ],
     "support": {
         "issues": "https://github.com/everton3x/html-object-model/issues",
-        "docs": "https://everton3x.github.io/html-object-model/"
+        "docs": "https://github.com/everton3x/html-object-model/wiki"
     },
     "require": {
         "php": "^7.4"
