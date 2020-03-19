@@ -29,7 +29,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "HtmlObjectModel\\": "src"
+            "HtmlObjectModel\\": "src",
+            "Example\\": "examples/real_example"
         }
     },
     "scripts": {

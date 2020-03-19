@@ -58,6 +58,10 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
         array (
             'HtmlObjectModel\\' => 16,
         ),
+        'E' => 
+        array (
+            'Example\\' => 8,
+        ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
@@ -174,6 +178,10 @@ class ComposerStaticInit7c02d15a59e2a93741ed71b62d683a92
         'HtmlObjectModel\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Example\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/examples/real_example',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
