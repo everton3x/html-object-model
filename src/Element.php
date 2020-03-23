@@ -8,7 +8,7 @@ use UnexpectedValueException;
  * An entity of type Element represents an HTML element that does not support children,
  * such as HR or INPUT, for example.
  */
-class Element extends EntityAbstract
+final class Element extends EntityAbstract
 {
     /**
      * HTML entity that does not support children.

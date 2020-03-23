@@ -4,7 +4,7 @@ namespace HtmlObjectModel;
 
 use UnexpectedValueException;
 
-class Container extends EntityAbstract
+final class Container extends EntityAbstract
 {
 
     /**
