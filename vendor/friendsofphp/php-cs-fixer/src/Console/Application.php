@@ -35,8 +35,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 final class Application extends BaseApplication
 {
-    const VERSION = '2.16.1';
-    const VERSION_CODENAME = 'Yellow Bird';
+    const VERSION = '2.17.0-DEV';
+    const VERSION_CODENAME = '';
 
     /**
      * @var ToolInfo
@@ -61,6 +61,14 @@ final class Application extends BaseApplication
             $this->toolInfo,
             new PharChecker()
         ));
+    }
+
+    /**
+     * @return int
+     */
+    public static function getMajorVersion()
+    {
+        return (int) explode('.', self::VERSION)[0];
     }
 
     /**

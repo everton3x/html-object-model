@@ -61,11 +61,12 @@ final class CombineNestedDirnameFixer extends AbstractFixer
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before MethodArgumentSpaceFixer, NoSpacesInsideParenthesisFixer.
+     * Must run after DirConstantFixer.
      */
     public function getPriority()
     {
-        // should run after DirConstantFixer
-        // should run before MethodArgumentSpaceFixer, NoSpacesInsideParenthesisFixer, NoTrailingWhitespaceFixer, NoWhitespaceInBlankLineFixer
         return 3;
     }
 
@@ -75,12 +76,6 @@ final class CombineNestedDirnameFixer extends AbstractFixer
     protected function applyFix(\SplFileInfo $file, Tokens $tokens)
     {
         for ($index = $tokens->count() - 1; 0 <= $index; --$index) {
-            $token = $tokens[$index];
-
-            if (!$token->equals([T_STRING, 'dirname'], false)) {
-                continue;
-            }
-
             $dirnameInfo = $this->getDirnameInfo($tokens, $index);
 
             if (!$dirnameInfo) {

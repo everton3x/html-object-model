@@ -107,16 +107,16 @@ echo 1;
      */
     public function isCandidate(Tokens $tokens)
     {
-        return $tokens[0]->isGivenKind(T_OPEN_TAG) && $tokens->isMonolithicPhp();
+        return isset($tokens[0]) && $tokens[0]->isGivenKind(T_OPEN_TAG) && $tokens->isMonolithicPhp();
     }
 
     /**
      * {@inheritdoc}
+     *
+     * Must run after NoBlankLinesAfterPhpdocFixer.
      */
     public function getPriority()
     {
-        // should be run after the NoBlankLinesAfterPhpdocFixer.
-        //
         // When this fixer is configured with ["separate" => "bottom", "commentType" => "PHPDoc"]
         // and the target file has no namespace or declare() construct,
         // the fixed header comment gets trimmed by NoBlankLinesAfterPhpdocFixer if we run before it.
@@ -312,7 +312,7 @@ echo 1;
         $expectedLineCount = 'both' === $this->configuration['separate'] || 'top' === $this->configuration['separate'] ? 2 : 1;
         $prev = $tokens->getPrevNonWhitespace($headerIndex);
 
-        $regex = '/[\t ]$/';
+        $regex = '/\h$/';
         if ($tokens[$prev]->isGivenKind(T_OPEN_TAG) && Preg::match($regex, $tokens[$prev]->getContent())) {
             $tokens[$prev] = new Token([T_OPEN_TAG, Preg::replace($regex, $lineEnding, $tokens[$prev]->getContent())]);
         }

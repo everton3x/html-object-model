@@ -99,7 +99,7 @@ class Filesystem
                     if (self::$lastError) {
                         throw new IOException(sprintf('Failed to create "%s": %s.', $dir, self::$lastError), 0, null, $dir);
                     }
-                    throw new IOException(sprintf('Failed to create "%s"', $dir), 0, null, $dir);
+                    throw new IOException(sprintf('Failed to create "%s".', $dir), 0, null, $dir);
                 }
             }
         }
@@ -345,7 +345,7 @@ class Filesystem
         }
 
         if (!is_file($originFile)) {
-            throw new FileNotFoundException(sprintf('Origin file "%s" is not a file', $originFile));
+            throw new FileNotFoundException(sprintf('Origin file "%s" is not a file.', $originFile));
         }
 
         foreach ($this->toIterable($targetFiles) as $targetFile) {
@@ -369,10 +369,10 @@ class Filesystem
     {
         if (self::$lastError) {
             if ('\\' === \DIRECTORY_SEPARATOR && false !== strpos(self::$lastError, 'error code(1314)')) {
-                throw new IOException(sprintf('Unable to create %s link due to error code 1314: \'A required privilege is not held by the client\'. Do you have the required Administrator-rights?', $linkType), 0, null, $target);
+                throw new IOException(sprintf('Unable to create "%s" link due to error code 1314: \'A required privilege is not held by the client\'. Do you have the required Administrator-rights?', $linkType), 0, null, $target);
             }
         }
-        throw new IOException(sprintf('Failed to create %s link from "%s" to "%s".', $linkType, $origin, $target), 0, null, $target);
+        throw new IOException(sprintf('Failed to create "%s" link from "%s" to "%s".', $linkType, $origin, $target), 0, null, $target);
     }
 
     /**
@@ -584,15 +584,17 @@ class Filesystem
      *
      * @param string $prefix The prefix of the generated temporary filename
      *                       Note: Windows uses only the first three characters of prefix
+     * @param string $suffix The suffix of the generated temporary filename
      *
      * @return string The new temporary filename (with path), or throw an exception on failure
      */
-    public function tempnam(string $dir, string $prefix)
+    public function tempnam(string $dir, string $prefix/*, string $suffix = ''*/)
     {
+        $suffix = \func_num_args() > 2 ? func_get_arg(2) : '';
         list($scheme, $hierarchy) = $this->getSchemeAndHierarchy($dir);
 
         // If no scheme or scheme is "file" or "gs" (Google Cloud) create temp file in local filesystem
-        if (null === $scheme || 'file' === $scheme || 'gs' === $scheme) {
+        if ((null === $scheme || 'file' === $scheme || 'gs' === $scheme) && '' === $suffix) {
             $tmpFile = @tempnam($hierarchy, $prefix);
 
             // If tempnam failed or no scheme return the filename otherwise prepend the scheme
@@ -610,7 +612,7 @@ class Filesystem
         // Loop until we create a valid temp file or have reached 10 attempts
         for ($i = 0; $i < 10; ++$i) {
             // Create a unique filename
-            $tmpFile = $dir.'/'.$prefix.uniqid(mt_rand(), true);
+            $tmpFile = $dir.'/'.$prefix.uniqid(mt_rand(), true).$suffix;
 
             // Use fopen instead of file_exists as some streams do not support stat
             // Use mode 'x+' to atomically check existence and create to avoid a TOCTOU vulnerability
@@ -640,7 +642,7 @@ class Filesystem
     public function dumpFile(string $filename, $content)
     {
         if (\is_array($content)) {
-            throw new \TypeError(sprintf('Argument 2 passed to %s() must be string or resource, array given.', __METHOD__));
+            throw new \TypeError(sprintf('Argument 2 passed to "%s()" must be string or resource, array given.', __METHOD__));
         }
 
         $dir = \dirname($filename);
@@ -676,7 +678,7 @@ class Filesystem
     public function appendToFile(string $filename, $content)
     {
         if (\is_array($content)) {
-            throw new \TypeError(sprintf('Argument 2 passed to %s() must be string or resource, array given.', __METHOD__));
+            throw new \TypeError(sprintf('Argument 2 passed to "%s()" must be string or resource, array given.', __METHOD__));
         }
 
         $dir = \dirname($filename);

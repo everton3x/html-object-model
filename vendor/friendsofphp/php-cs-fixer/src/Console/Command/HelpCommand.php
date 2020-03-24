@@ -12,10 +12,10 @@
 
 namespace PhpCsFixer\Console\Command;
 
+use PhpCsFixer\AbstractFixer;
 use PhpCsFixer\Console\Application;
 use PhpCsFixer\Fixer\ConfigurableFixerInterface;
 use PhpCsFixer\Fixer\ConfigurationDefinitionFixerInterface;
-use PhpCsFixer\Fixer\DefinedFixerInterface;
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerConfiguration\AliasedFixerOption;
@@ -71,8 +71,16 @@ NOTE: the output for the following formats are generated in accordance with XML 
 * ``junit`` follows the `JUnit xml schema from Jenkins </doc/junit-10.xsd>`_
 * ``checkstyle`` follows the common `"checkstyle" xml schema </doc/checkstyle.xsd>`_
 
+The <comment>--quiet</comment> Do not output any message.
 
 The <comment>--verbose</comment> option will show the applied rules. When using the ``txt`` format it will also display progress notifications.
+
+NOTE: if there is an error like "errors reported during linting after fixing", you can use this to be even more verbose for debugging purpose
+
+* ``--verbose=0`` or no option: normal
+* ``--verbose``, ``--verbose=1``, ``-v``: verbose
+* ``--verbose=2``, ``-vv``: very verbose
+* ``--verbose=3``, ``-vvv``: debug
 
 The <comment>--rules</comment> option limits the rules to apply to the
 project:
@@ -167,7 +175,7 @@ The example below will add two rules to the default list of PSR2 set rules:
         ->in(__DIR__)
     ;
 
-    return PhpCsFixer\Config::create()
+    return (new PhpCsFixer\Config())
         ->setRules([
             '@PSR2' => true,
             'strict_param' => true,
@@ -194,7 +202,7 @@ The following example shows how to use all ``Symfony`` rules but the ``full_open
         ->in(__DIR__)
     ;
 
-    return PhpCsFixer\Config::create()
+    return (new PhpCsFixer\Config())
         ->setRules([
             '@Symfony' => true,
             'full_opening_tag' => false,
@@ -209,7 +217,7 @@ configure them in your config file.
 
     <?php
 
-    return PhpCsFixer\Config::create()
+    return (new PhpCsFixer\Config())
         ->setIndent("\t")
         ->setLineEnding("\r\n")
     ;
@@ -232,7 +240,7 @@ Cache can be disabled via ``--using-cache`` option or config file:
 
     <?php
 
-    return PhpCsFixer\Config::create()
+    return (new PhpCsFixer\Config())
         ->setUsingCache(false)
     ;
 
@@ -242,7 +250,7 @@ Cache file can be specified via ``--cache-file`` option or config file:
 
     <?php
 
-    return PhpCsFixer\Config::create()
+    return (new PhpCsFixer\Config())
         ->setCacheFile(__DIR__.'/.php_cs.cache')
     ;
 
@@ -400,7 +408,7 @@ EOF
             ));
         }
 
-        for ($i = (int) Application::VERSION; $i > 0; --$i) {
+        for ($i = Application::getMajorVersion(); $i > 0; --$i) {
             if (1 === Preg::match('/Changelog for v('.$i.'.\d+.\d+)/', $changelog, $matches)) {
                 $version = $matches[1];
 
@@ -440,6 +448,7 @@ EOF
     {
         $help = '';
         $fixerFactory = new FixerFactory();
+        /** @var AbstractFixer[] $fixers */
         $fixers = $fixerFactory->registerBuiltInFixers()->getFixers();
 
         // sort fixers by name
@@ -471,11 +480,7 @@ EOF
         foreach ($fixers as $i => $fixer) {
             $sets = $getSetsWithRule($fixer->getName());
 
-            if ($fixer instanceof DefinedFixerInterface) {
-                $description = $fixer->getDefinition()->getSummary();
-            } else {
-                $description = '[n/a]';
-            }
+            $description = $fixer->getDefinition()->getSummary();
 
             if ($fixer instanceof DeprecatedFixerInterface) {
                 $successors = $fixer->getSuccessorsNames();
@@ -534,7 +539,7 @@ EOF
                             }
                         } else {
                             $allowed = array_map(
-                                function ($type) {
+                                static function ($type) {
                                     return '<comment>'.$type.'</comment>';
                                 },
                                 $option->getAllowedTypes()

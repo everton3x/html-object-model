@@ -14,6 +14,7 @@ namespace PhpCsFixer\Fixer\ClassNotation;
 
 use PhpCsFixer\AbstractFixer;
 use PhpCsFixer\Fixer\ConfigurationDefinitionFixerInterface;
+use PhpCsFixer\FixerConfiguration\AliasedFixerOptionBuilder;
 use PhpCsFixer\FixerConfiguration\AllowedValueSubset;
 use PhpCsFixer\FixerConfiguration\FixerConfigurationResolverRootless;
 use PhpCsFixer\FixerConfiguration\FixerOptionBuilder;
@@ -30,6 +31,7 @@ final class OrderedClassElementsFixer extends AbstractFixer implements Configura
 {
     /** @internal */
     const SORT_ALPHA = 'alpha';
+
     /** @internal */
     const SORT_NONE = 'none';
 
@@ -202,7 +204,7 @@ class Example
     public function C(){}
 }
 ',
-                    ['order' => ['method_public'], 'sortAlgorithm' => 'alpha']
+                    ['order' => ['method_public'], 'sort_algorithm' => 'alpha']
                 ),
             ]
         );
@@ -210,11 +212,12 @@ class Example
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before ClassAttributesSeparationFixer, MethodSeparationFixer, NoBlankLinesAfterClassOpeningFixer, SpaceAfterSemicolonFixer.
+     * Must run after NoPhp4ConstructorFixer, ProtectedToPrivateFixer.
      */
     public function getPriority()
     {
-        // must run before MethodSeparationFixer, NoBlankLinesAfterClassOpeningFixer and SpaceAfterSemicolonFixer.
-        // must run after ProtectedToPrivateFixer.
         return 65;
     }
 
@@ -231,7 +234,7 @@ class Example
             $i = $tokens->getNextTokenOfKind($i, ['{']);
             $elements = $this->getElements($tokens, $i);
 
-            if (!$elements) {
+            if (0 === \count($elements)) {
                 continue;
             }
 
@@ -272,7 +275,10 @@ class Example
                     'method_private',
                 ])
                 ->getOption(),
-            (new FixerOptionBuilder('sortAlgorithm', 'How multiple occurrences of same type statements should be sorted'))
+            (new AliasedFixerOptionBuilder(
+                new FixerOptionBuilder('sort_algorithm', 'How multiple occurrences of same type statements should be sorted'),
+                'sortAlgorithm'
+            ))
                 ->setAllowedValues($this->supportedSortAlgorithms)
                 ->setDefault(self::SORT_NONE)
                 ->getOption(),
@@ -332,7 +338,7 @@ class Example
 
                 if ('property' === $element['type']) {
                     $element['name'] = $tokens[$i]->getContent();
-                } elseif (\in_array($element['type'], ['use_trait', 'constant', 'method', 'magic'], true)) {
+                } elseif (\in_array($element['type'], ['use_trait', 'constant', 'method', 'magic', 'construct', 'destruct'], true)) {
                     $element['name'] = $tokens[$tokens->getNextMeaningfulToken($i)]->getContent();
                 }
 
@@ -344,6 +350,8 @@ class Example
             $elements[] = $element;
             $startIndex = $element['end'] + 1;
         }
+
+        return [];
     }
 
     /**
@@ -469,7 +477,7 @@ class Example
 
     private function sortGroupElements(array $a, array $b)
     {
-        $selectedSortAlgorithm = $this->configuration['sortAlgorithm'];
+        $selectedSortAlgorithm = $this->configuration['sort_algorithm'];
 
         if (self::SORT_ALPHA === $selectedSortAlgorithm) {
             return strcasecmp($a['name'], $b['name']);
